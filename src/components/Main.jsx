@@ -3,7 +3,7 @@ import TvShowsList from "./TvShowsList";
 
 export default function Main() {
     return (
-        <main>
+        <main className="container">
             <MoviesList />
             <TvShowsList />
         </main>

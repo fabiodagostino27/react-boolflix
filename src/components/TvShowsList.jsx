@@ -9,11 +9,11 @@ export default function TvShowsList() {
     return (
         <div>
             <h1>Lista serie Tv</h1>
-            <ul>
+            <div className="lis">
                 {
                     tvShows.length === 0 ? <h3>Nessun risultato</h3> : tvShows.map(t => <TvShow key={t.id} tvShow={t} />)
                 }
-            </ul>
+            </div>
         </div>
     )
 }

@@ -5,10 +5,10 @@ export default function Movie(props) {
     const flag = langToFlag.find(e => e.lang === original_language);
 
     return (
-        <li>
+        <div>
             {title} 
             <img src={flag ? flag.img : "https://flagicons.lipis.dev/flags/4x3/xx.svg"} alt={original_language} style={{width: 20}} />
             ({original_title}, {vote_average})
-        </li>
+        </div>
     )
 }

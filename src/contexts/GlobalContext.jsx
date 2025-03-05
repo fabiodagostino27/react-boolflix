@@ -3,7 +3,10 @@ import { createContext, useState } from "react";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    let movie = "";
+    
+    const [movies, setMovies] = useState([]);
+    const [movie, setMovie] = useState("");
+    
     const url = `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=it-IT&page=1`
     const options = {
         method: "GET",
@@ -11,9 +14,7 @@ const GlobalProvider = ({ children }) => {
             accept: "application/json",
             Authorization: import.meta.env.VITE_AUTH
         }
-    }
-
-    const [movies, setMovies] = useState([]);
+    };
 
     const fetchMovies = () => {
         fetch(url, options)
@@ -23,7 +24,7 @@ const GlobalProvider = ({ children }) => {
     };
 
     return (
-        <GlobalContext.Provider value={{movie, movies, fetchMovies}}>
+        <GlobalContext.Provider value={{movie, setMovie, movies, fetchMovies}}>
             {children}
         </GlobalContext.Provider>
     )

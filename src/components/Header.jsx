@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function Header() {
-    const {search, setSearch, fetchMovies} = useContext(GlobalContext);
+    const {search, setSearch, fetchMovies, fetchTvShows} = useContext(GlobalContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         fetchMovies(search);
+        fetchTvShows(search)
         setSearch("")
     };
 

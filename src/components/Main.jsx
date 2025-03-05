@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
+import Movie from "./Movie";
 
 export default function Main() {
     const { movie, movies, fetchMovies } = useContext(GlobalContext);
@@ -7,17 +8,12 @@ export default function Main() {
     return (
         <main>
             <h1>Lista film</h1>
-
             <ul>
                 {
-                    movies.map(m => {
-                        return (
-                            <li key={m.id}>{m.title} (Titolo originale: {m.original_title}, lingua: {m.original_language}, voto: {m.vote_average})</li>
-                        )
-                    })
+                    movies.length === 0 ? <h3>Nessun risultato</h3> :
+                    movies.map(m => <Movie key={m.id} movie={m} />)
                 }
             </ul>
-
         </main>
     )
 }

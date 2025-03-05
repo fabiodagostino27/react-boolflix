@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function Header() {

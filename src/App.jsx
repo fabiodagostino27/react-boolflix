@@ -1,7 +1,11 @@
+import { GlobalProvider } from "./contexts/GlobalContext"
+
 function App() {
     return (
         <>
-
+            <GlobalProvider>
+                
+            </GlobalProvider>
         </>
     )
 }

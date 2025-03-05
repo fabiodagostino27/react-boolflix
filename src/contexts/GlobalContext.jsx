@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 const GlobalContext = createContext();
 
-const GlobalProvider = ({children}) => {
+const GlobalProvider = ({ children }) => {
     const url = `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=it-IT&page=1`
     const options = {
         method: "GET",
@@ -13,4 +13,19 @@ const GlobalProvider = ({children}) => {
     }
 
     const [movies, setMovies] = useState([]);
-}
+
+    const fetchMovies = () => {
+        fetch(url, options)
+            .then(res => res.json())
+            .then(data => setMovies(data.results))
+            .catch(err => console.error(err));
+    };
+
+    return (
+        <GlobalContext.Provider value={{movies, fetchMovies}}>
+            {children}
+        </GlobalContext.Provider>
+    )
+};
+
+export {GlobalContext, GlobalProvider}

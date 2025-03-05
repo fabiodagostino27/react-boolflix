@@ -5,9 +5,9 @@ const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
     
     const [movies, setMovies] = useState([]);
-    const [movie, setMovie] = useState("");
+    const [search, setSearch] = useState("");
     
-    const url = `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=it-IT&page=1`
+    const url = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=it-IT&page=1`
     const options = {
         method: "GET",
         headers: {
@@ -24,7 +24,7 @@ const GlobalProvider = ({ children }) => {
     };
 
     return (
-        <GlobalContext.Provider value={{movie, setMovie, movies, fetchMovies}}>
+        <GlobalContext.Provider value={{search, setSearch, movies, fetchMovies}}>
             {children}
         </GlobalContext.Provider>
     )

@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
+    let movie = "";
     const url = `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=it-IT&page=1`
     const options = {
         method: "GET",
@@ -22,7 +23,7 @@ const GlobalProvider = ({ children }) => {
     };
 
     return (
-        <GlobalContext.Provider value={{movies, fetchMovies}}>
+        <GlobalContext.Provider value={{movie, movies, fetchMovies}}>
             {children}
         </GlobalContext.Provider>
     )

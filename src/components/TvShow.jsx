@@ -1,22 +1,10 @@
 import CountryFlag from "react-country-flag";
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function TvShow(props) {
     const { name, original_name, original_language, vote_average, poster_path } = props.tvShow;
-
-    const starsRating = () => {
-        const roundVote = Math.round(vote_average / 2);
-        const arrayStars = [];
-
-        for (let i = 1; i <=5; i++) {
-            if (i <= roundVote) {
-                arrayStars.push(<i class="fa-solid fa-star"></i>) 
-            } else {
-                arrayStars.push(<i class="fa-regular fa-star"></i>) 
-            }
-        };
-        
-        return arrayStars;
-    }
+    const {starsRating} = useContext(GlobalContext);
 
     return (
         <div className="col-3">
@@ -31,7 +19,7 @@ export default function TvShow(props) {
             <div>
                 {name}
                 <CountryFlag countryCode={original_language === "en" ? "gb" : original_language === "ja" ? "jp" : original_language === "ko" ? "kr" : original_language} svg />
-                ({original_name}, {starsRating()})
+                ({original_name}, {starsRating(vote_average)})
             </div>
         </div>
     )

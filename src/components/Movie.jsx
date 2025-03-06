@@ -3,6 +3,21 @@ import CountryFlag from "react-country-flag";
 export default function Movie(props) {
     const { title, original_title, original_language, vote_average, poster_path } = props.movie;
 
+    const starsRating = () => {
+        const roundVote = Math.round(vote_average / 2);
+        const arrayStars = [];
+
+        for (let i = 1; i <=5; i++) {
+            if (i <= roundVote) {
+                arrayStars.push(<i class="fa-solid fa-star"></i>) 
+            } else {
+                arrayStars.push(<i class="fa-regular fa-star"></i>) 
+            }
+        };
+        
+        return arrayStars;
+    }
+
     return (
         <div className="col-3">
             <div>
@@ -16,7 +31,7 @@ export default function Movie(props) {
             <div>
                 {title}, {original_language}
                 <CountryFlag countryCode={original_language === "en" ? "gb" : original_language === "ja" ? "jp" : original_language === "ko" ? "kr" : original_language} svg />
-                ({original_title}, {vote_average})
+                ({original_title}, {starsRating()})
             </div>
         </div>
     )

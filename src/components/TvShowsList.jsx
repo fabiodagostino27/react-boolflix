@@ -7,9 +7,9 @@ export default function TvShowsList() {
     const { tvShows } = useContext(GlobalContext);
 
     return (
-        <div>
-            <h1>Serie TV</h1>
-            <div className="row">
+        <div className="mb-4">
+            <h1 className="mb-3">Serie TV</h1>
+            <div className="row g-4">
                 {
                     tvShows.length === 0 ? <h3>Nessun risultato</h3> : tvShows.map(t => <TvShow key={t.id} tvShow={t} />)
                 }

@@ -11,11 +11,10 @@ export default function TvShow(props) {
             <div className="poster position-relative">
                 <div className="w-100">
                     {
-                        poster_path ? <img className="w-100" src={`https://image.tmdb.org/t/p/w780${poster_path}`} alt="" style={{ aspectRatio: 12 / 18 }} />
+                        poster_path ? <img className="w-100" src={`https://image.tmdb.org/t/p/w780${poster_path}`} alt={name} style={{ aspectRatio: 12 / 18 }} />
                             : <h3 className="w-100 p-2 bg-black text-white d-flex align-items-center justify-content-center text-center lh-base" style={{ aspectRatio: 12 / 18 }}>{name}</h3>
                     }
                 </div>
-
 
                 <div className="details d-none flex-column gap-2 w-100 h-100 position-absolute top-0 start-0 p-3">
                     <div><strong>Titolo: </strong>{name}</div>

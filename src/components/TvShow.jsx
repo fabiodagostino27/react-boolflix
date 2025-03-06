@@ -3,24 +3,28 @@ import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function TvShow(props) {
-    const { name, original_name, original_language, vote_average, poster_path } = props.tvShow;
-    const {starsRating} = useContext(GlobalContext);
+    const { name, original_name, original_language, vote_average, poster_path, overview } = props.tvShow;
+    const { starsRating } = useContext(GlobalContext);
 
     return (
-        <div className="col-3">
-            <div>
-                <figure className="w-100">
+        <div className="col-6 col-md-4 col-lg-3">
+            <div className="poster position-relative">
+                <div className="w-100">
                     {
                         poster_path ? <img className="w-100" src={`https://image.tmdb.org/t/p/w780${poster_path}`} alt="" style={{ aspectRatio: 12 / 18 }} />
                             : <h3 className="w-100 p-2 bg-black text-white d-flex align-items-center justify-content-center text-center lh-base" style={{ aspectRatio: 12 / 18 }}>{name}</h3>
                     }
-                </figure>
+                </div>
+
+
+                <div className="details d-none flex-column gap-2 w-100 h-100 position-absolute top-0 start-0 p-3">
+                    <div><strong>Titolo: </strong>{name}</div>
+                    <div><strong>Lingua originale: </strong> <CountryFlag countryCode={original_language === "en" ? "gb" : original_language === "ja" ? "jp" : original_language === "ko" ? "kr" : original_language} svg /></div>
+                    {name === original_name ? "" : <div><strong>Titolo originale: </strong>{original_name}</div>}
+                    <div><strong>Voto: </strong>{starsRating(vote_average)}</div>
+                    <div><strong>Riassunto: </strong>{overview}</div>
+                </div>
             </div>
-            {/*<div>
-                {name}
-                <CountryFlag countryCode={original_language === "en" ? "gb" : original_language === "ja" ? "jp" : original_language === "ko" ? "kr" : original_language} svg />
-                ({original_name}, {starsRating(vote_average)})
-            </div>*/}
         </div>
     )
 }

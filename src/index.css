@@ -7,3 +7,9 @@ main {
     height: calc(100vh - 80px);
     overflow: auto;
 }
+
+.poster:hover .details{
+    display: flex !important;
+    background-color: rgba(0, 0, 0, 0.74);
+    overflow: auto;
+}

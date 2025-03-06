@@ -8,6 +8,11 @@ main {
     overflow: auto;
 }
 
+.tip {
+    font-size: 50px;
+    font-weight: 600;
+}
+
 .poster:hover .details{
     display: flex !important;
     background-color: rgba(0, 0, 0, 0.74);

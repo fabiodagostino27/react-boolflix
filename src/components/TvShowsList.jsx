@@ -7,7 +7,7 @@ export default function TvShowsList() {
     const { tvShows } = useContext(GlobalContext);
 
     return (
-        <div className="mb-4">
+        <div className="pb-5">
             <h1 className="mb-3">Serie TV</h1>
             <div className="row g-4">
                 {

@@ -6,9 +6,9 @@ export default function MoviesList() {
     const { movies } = useContext(GlobalContext);
 
     return (
-        <div>
-            <h1>Film</h1>
-            <div className="row g-1">
+        <div className="mb-5">
+            <h1 className="mb-3">Film</h1>
+            <div className="row g-4">
                 {
                     movies.length === 0 ? <h3>Nessun risultato</h3> : movies.map(m => <Movie key={m.id} movie={m} />)
                 }

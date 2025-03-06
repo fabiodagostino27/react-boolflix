@@ -12,7 +12,7 @@ export default function Header() {
     };
 
     return (
-        <div className="d-flex justify-content-between p-3 bg-black align-items-center text-danger">
+        <header className="d-flex justify-content-between p-3 bg-black align-items-center text-danger">
             <h1>Boolflix</h1>
 
             <form className="d-flex" onSubmit={handleSubmit}>
@@ -23,6 +23,6 @@ export default function Header() {
                     onChange={(e) => setSearch(e.target.value)} />
                 <button className="btn btn-danger rounded-start-0 rounded-end-2" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
             </form>
-        </div>
+        </header>
     )
 }

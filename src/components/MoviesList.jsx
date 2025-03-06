@@ -7,7 +7,7 @@ export default function MoviesList() {
 
     return (
         <div>
-            <h1>Lista Film</h1>
+            <h1>Film</h1>
             <div className="row">
                 {
                     movies.length === 0 ? <h3>Nessun risultato</h3> : movies.map(m => <Movie key={m.id} movie={m} />)

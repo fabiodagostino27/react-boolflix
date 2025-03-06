@@ -8,7 +8,7 @@ export default function TvShowsList() {
 
     return (
         <div>
-            <h1>Lista serie Tv</h1>
+            <h1>Serie TV</h1>
             <div className="row">
                 {
                     tvShows.length === 0 ? <h3>Nessun risultato</h3> : tvShows.map(t => <TvShow key={t.id} tvShow={t} />)

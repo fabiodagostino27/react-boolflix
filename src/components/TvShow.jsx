@@ -1,8 +1,7 @@
-import { langToFlag } from "../data/langToFlag";
+import CountryFlag from "react-country-flag";
 
 export default function TvShow(props) {
     const { name, original_name, original_language, vote_average, poster_path } = props.tvShow;
-    const flag = langToFlag.find(e => e.lang === original_language);
 
     return (
         <div className="col-3">
@@ -10,13 +9,13 @@ export default function TvShow(props) {
                 <figure className="w-100">
                     {
                         poster_path ? <img className="w-100" src={`https://image.tmdb.org/t/p/w780${poster_path}`} alt="" style={{ aspectRatio: 12 / 17 }} />
-                            : <h1 className="w-100 p-2 bg-black text-white d-flex align-items-center text-center lh-lg" style={{ aspectRatio: 12 / 17 }}>{title}</h1>
+                            : <h1 className="w-100 p-2 bg-black text-white d-flex align-items-center justify-content-center text-center lh-lg" style={{ aspectRatio: 12 / 17 }}>{name}</h1>
                     }
                 </figure>
             </div>
             <div>
                 {name}
-                <img src={flag ? flag.img : "https://flagicons.lipis.dev/flags/4x3/xx.svg"} alt={original_language} style={{ width: 20 }} />
+                <CountryFlag countryCode={original_language === "en" ? "gb" : original_language === "ja" ? "jp" : original_language === "ko" ? "kr" : original_language} svg />
                 ({original_name}, {vote_average})
             </div>
         </div>

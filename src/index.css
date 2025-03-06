@@ -3,7 +3,7 @@ header {
 }
 
 main {
-    background-color: rgba(0, 0, 0, 0.856);
+    background: linear-gradient(121deg, rgba(0,0,0,1) 31%, rgba(182,0,0,1) 100%);
     height: calc(100vh - 80px);
     overflow: auto;
 }
